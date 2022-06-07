@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Header } from "../../Components/Header";
+import { WizardCard } from "../../Components/WizardCard";
 import { apiHP } from "../../Services/api";
+import { FlexContainer } from "../../styles/global";
 
 export const Home = () => {
   const [listWizards, setListWizards] = useState([]);
@@ -16,13 +18,11 @@ export const Home = () => {
     <>
       <Header />
       <h1>Home</h1>
-      {listWizards?.map((character) => (
-        <div key={character?.id}>
-          <img src={character?.image} />
-          <h2>{character?.name}</h2>
-          <p>-------------------------</p>
-        </div>
-      ))}
+      <FlexContainer>
+        {listWizards?.map((character) => (
+          <WizardCard key={character?.id} character={character} />
+        ))}
+      </FlexContainer>
     </>
   );
 };

@@ -11,6 +11,9 @@ export const Header = () => {
           <li>
             <Link to="/login"> Login</Link>
           </li>
+          <li>
+            <a href="https://harrypotter.fandom.com/wiki/Main_Page"> Wiki</a>
+          </li>
         </ul>
       </nav>
     </header>
