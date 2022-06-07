@@ -19,6 +19,8 @@ export const Routes = () => {
         <Character />
       </Route>
       <Route path="*">
+        {/* É uma boa prática sempre renderizar Pages nas rotas
+        Exemplo do que não fazer abaixo: */}
         <h1>404 - Page Not Found</h1>
         <img src="https://http.cat/404" alt="Page not found" />
       </Route>

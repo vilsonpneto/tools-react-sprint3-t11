@@ -6,7 +6,7 @@ import { apiHP } from "../../Services/api";
 
 export const Character = () => {
   const { id } = useParams();
-  const history = useHistory();
+  //const history = useHistory();
 
   const [wizard, setWizard] = useState(null);
   const [notFound, setNotFound] = useState(false);
@@ -17,13 +17,15 @@ export const Character = () => {
       .then((response) => setWizard(response.data))
       .catch((error) => {
         console.log(error);
-        // setNotFound(true);
-        history.push("/");
+        setNotFound(true);
+
+        // Poderia utilizar o history para direcionar para outra Page caso houver um erro
+        // history.push("/");
       });
 
-    return () => {
-      setNotFound(false);
-    };
+    // return () => {
+    //   setNotFound(false);
+    // };
   }, []);
 
   if (notFound) {
