@@ -2,6 +2,7 @@ import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import { Character } from "../Pages/Character";
 import { Home } from "../Pages/Home";
+import { Register } from "../Pages/Register";
 
 export const Routes = () => {
   return (
@@ -13,7 +14,7 @@ export const Routes = () => {
         <h1>Login</h1>
       </Route>
       <Route exact path="/register">
-        <h1>Register</h1>
+        <Register />
       </Route>
       <Route path="/character/:id">
         <Character />

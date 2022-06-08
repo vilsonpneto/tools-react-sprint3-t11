@@ -6,8 +6,11 @@ export const GlobalStyle = createGlobalStyle`
       margin: 0;
 
       box-sizing: border-box;
-      color: #EEE
     }
+
+    h1, h2, h3, h4, p, label, span {
+    color: #EEE;
+  }
 
   body {
       background-color: #147;
