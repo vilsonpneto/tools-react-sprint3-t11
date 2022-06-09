@@ -7,10 +7,10 @@ import {
   FormControlLabel,
   Paper,
   TextField,
-  Typography,
 } from "@mui/material";
 
 import { Header } from "../../Components/Header";
+import { Input } from "../../Components/Input";
 
 import { FlexContainer } from "../../styles/global";
 import { StyledForm, StyledTypography } from "./styles";
@@ -53,6 +53,14 @@ export const Register = () => {
           </StyledTypography>
 
           <FlexContainer flexDirection="column" justifyContent="center">
+            {/* Exemplo de utilização do Input criado */}
+            {/* <Input
+              label="Username"
+              name="username"
+              register={register}
+              error={errors.username}
+            /> */}
+
             <TextField
               required
               error={!!errors.username}
