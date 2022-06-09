@@ -1,11 +1,19 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import {
+  Button,
+  Checkbox,
+  FormControlLabel,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 import { Header } from "../../Components/Header";
 
 import { FlexContainer } from "../../styles/global";
-import { StyledForm } from "./styles";
+import { StyledForm, StyledTypography } from "./styles";
 
 export const Register = () => {
   const schema = yup.object().shape({
@@ -39,42 +47,60 @@ export const Register = () => {
     <>
       <Header />
       <StyledForm onSubmit={handleSubmit(signUp)}>
-        <FlexContainer flexDirection="column" justifyContent="center">
-          <label>Username: </label>
-          <input type="text" {...register("username")} />
-          {/* <span> {errors?.username?.message}</span> */}
-          {errors.username && (
-            <span className="error"> {errors.username.message}</span>
-          )}
+        <Paper elevation={3}>
+          <StyledTypography batata="10px" variant="p" component="h2">
+            Register
+          </StyledTypography>
 
-          <label>Email: </label>
-          <input type="text" {...register("email")} />
-          {errors.email && (
-            <span className="error"> {errors.email.message}</span>
-          )}
+          <FlexContainer flexDirection="column" justifyContent="center">
+            <TextField
+              required
+              error={!!errors.username}
+              helperText={errors?.username?.message}
+              label="Username"
+              {...register("username")}
+            />
 
-          <label>Password: </label>
-          <input type="password" {...register("password")} />
-          {errors.password && (
-            <span className="error"> {errors.password.message}</span>
-          )}
+            <TextField
+              required
+              error={!!errors.email}
+              helperText={errors?.email?.message}
+              label="Email"
+              {...register("email")}
+            />
 
-          <label>Confirm password: </label>
-          <input type="password" {...register("confirmPassword")} />
-          {errors.confirmPassword && (
-            <span className="error"> {errors.confirmPassword.message}</span>
-          )}
+            <TextField
+              required
+              error={!!errors.password}
+              helperText={errors?.password?.message}
+              label="Password"
+              {...register("password")}
+              type="password"
+            />
 
-          <div>
-            <input type="checkbox" {...register("terms")} />
-            <span>Accept terms?</span>
-          </div>
-          {errors.terms && (
-            <span className="error"> {errors.terms.message}</span>
-          )}
+            <TextField
+              required
+              error={!!errors.confirmPassword}
+              helperText={errors?.confirmPassword?.message}
+              label="Confirm password"
+              {...register("confirmPassword")}
+              type="password"
+            />
 
-          <button type="submit">Create an Account</button>
-        </FlexContainer>
+            <FormControlLabel
+              error={!!errors.terms}
+              control={<Checkbox {...register("terms")} />}
+              label="Accept terms?"
+            />
+            {errors.terms && (
+              <span className="error"> {errors.terms.message}</span>
+            )}
+
+            <Button variant="contained" type="submit">
+              Create an Account
+            </Button>
+          </FlexContainer>
+        </Paper>
       </StyledForm>
     </>
   );
